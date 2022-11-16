@@ -1,0 +1,76 @@
+Author: Marshall Jones
+Lab 2 Analysis
+
+Selection Sort
+When selectionSort() sorts a randomly generated list of size 10, it 
+takes about 0.0001 seconds. It performs about 6 swaps and 12 comparisons 
+in that time.
+To find the average case for selectionSort(), it is best to view its
+performance on a large, randomly generated list. For a list of size
+10000, it takes about 15.0948 seconds. In that time, it performs about 
+9993 swaps and 78050 comparisons.
+When the list of size 10000 is already sorted, selectionSort() actually 
+takes more time at about 16.2037 seconds. In that time, it performed 0
+swaps or comparisons.
+
+Bubble Sort
+When bubbleSort() sorts a randomly generated list of size 10, it 
+takes about 0.0001 seconds. It performs about 28 swaps and 0 comparisons 
+in that time.
+To find the average case for bubbleSort(), it is best to view its
+performance on a large, randomly generated list. For a list of size
+10000, it takes about 24.6606 seconds. In that time, it performs about 
+25,057,226 swaps and no comparisons.
+When the list of size 10000 is already sorted, bubbleSort() takes very
+little time at about 0.0031 seconds. In that time, it did not perform
+any swaps or comparisons.
+
+Quick Sort
+When quickSort() sorts a randomly generated list of size 10, it 
+takes about 0.0001 seconds. It performs about 18 swaps and 0 comparisons 
+in that time.
+To find the average case for quickSort(), it is best to view its
+performance on a large, randomly generated list. For a list of size
+10000, it takes very little time at about 0.0938 seconds. In that time, 
+it performs about 90390 swaps and no comparisons.
+When the list of size 10000 is already sorted, quickSort() takes very
+little time at about 0.0770 seconds. In that time, it performed about
+60517 swaps and no comparisons.
+
+Merge Sort
+When mergeSort() sorts a randomly generated list of size 10, it 
+takes about 0.0002 seconds. It performs about 24 swaps and 34 comparisons 
+in that time.
+To find the average case for mergeSort(), it is best to view its
+performance on a large, randomly generated list. For a list of size
+10000, it takes very little time at about 0.1897 seconds. In that time, 
+it performs about 120416 swaps and 133616 comparisons.
+When the list of size 10000 is already sorted, mergeSort() takes very
+little time at about 0.1775 seconds. In that time, it performed about
+69008 swaps and 133616 comparisons. The number of comparisons here
+did not change from when the list was random.
+MergeSort's complexity is better than 0(n^2), and its worst case is
+O(n * log(n)).
+
+
+
+In a situation where the items are likely to be in sorted order when 
+sort is called, I would first consider using bubbleSort() because it 
+takes very little time when the list is already sorted, and it performs 
+no swaps or comparisons. However, in the case that it is only 'likely' 
+that the items are in a sorted order and that there's still a chance the 
+items will be completely random, I would use quickSort because it takes 
+very little time when the list is random, and it's a minimal tradeoff on 
+time when the list is already sorted.
+
+In a situation where the system needs to conserve memory while sorting
+with no other constrictions in mind, I would use selectionSort() because
+it doesn't call any functions or contain any excess 'buffer' lists. It's
+also better in this aspect than bubbleSort() because it performs less
+swaps and a relatively small amount of comparisons.
+
+In a situation where sorting will be frequently called on the data set,
+I would want to prioritize speed of execution. For that reason, I would 
+use quickSort() because it only takes about 0.0938 seconds to execute for a 
+random list of size 10000. It also takes very little time when the list
+is already sorted.

@@ -1,0 +1,26 @@
+Marshall Jones
+CSCI 112
+
+Maze Analysis
+
+I found that the stack is always more efficient than the queues.
+In maze1.txt, it took the stack only 116 steps to solve the maze,
+while it took 143 steps for the ArrayQ.
+
+Similarly in maze2.txt, it took the stack 14 steps, whereas the
+queue took over double the number of steps at 35.
+
+maze3.txt did not work for any of my storage types – ArrayQueue,
+LinkedQueue, and LinkedStack.
+
+In the stack's approach to solving the maze, it chose one direction
+to go at a time. When it hit a road block, it backtracked to the last
+point where it could have turned. I found this to be more efficient than
+the queues, which tried all possibilities at the same time. 
+
+Even if the stack happened to choose the wrong path every time except for 
+its last possibility, it would still finish the maze in the same number of 
+steps as the queues.
+
+Overall, both types of storage seem to have the same success rate, but the
+stack seems to be the most efficient in general.

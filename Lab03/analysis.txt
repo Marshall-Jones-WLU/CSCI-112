@@ -1,0 +1,26 @@
+Marshall Jones
+Lab 3 Analysis
+
+The safeBoard() function has a nested for-loop that calls both checkVertical() and checkDiagonal().
+The functions that it calls do not highly influence the complexity – it's the nested for-loop that
+makes the big difference in runtime. Because the algorithm is filling the board for every possible 
+configuration and then checking to see if it's a valid solution, the complexity is O(N^2).
+The most important part to observe is the nested for-loop, which gives it a complexity of O(N^2). If
+there were just one for-loop, the complexity would be O(N), but since there are two, it is O(N*N).
+
+The checkVertical() function has a complexity of O(1) because there is no argument that can make it
+take any more time.
+
+The checkDiagonal() function has a complexity of O(1) because there is no argument that can make it
+take any more time.
+
+The nQueensBrute function first creates an empty board of length N, which gives it a complexity of 
+O(N). It also calls the function safeBoard(), which has a complexity of O(N^2). But, because the 
+algorithm is filling the board for every possible configuration and then checking to see if it's a 
+valid solution accross the whole board, the complexity is O(N^N). This is the reason why it takes 
+so long to find all valid solutions of anything larger than an 8x8 board.
+
+Comparing the runtimes of the Brute vs Fancy methods, it is clear that the Fancy method is far more
+efficient. For a board of size 7, the Brute method takes my computer 10.2079 seconds, while the Fancy
+method only takes 0.0390 seconds. For a board of size 8, Brute takes 229.3441 seconds, and Fancy takes
+0.1749 seconds.

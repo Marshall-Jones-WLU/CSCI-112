@@ -1,0 +1,156 @@
+"""
+File:   graph_application.txt
+Author: Marshall Jones
+Date:   11/13/2020
+"""
+
+Forestry Application of Graphs
+
+Professor Khan, this is a potential business idea that I have been 
+thinking over this past semester and summer. I would love any input 
+you have, and I ask that you keep the idea confidential. I plan to 
+reach out to Professor Levy since programming with drones would be a 
+significant part of the project. But as I said, I would be thrilled
+to receive any and all feedback you can think of.
+
+I've already begun writing a business plan for this, but since this 
+assignment is intended to focus on applications of graphs, I'll try 
+not to delve too deep into the weeds of other details.
+
+Below, I first provide a high-level overview of the concept,
+beginning with the problem at hand, then moving on to my solution.
+Last, I explore the technicalities of how the software would work,
+and how the concepts relate to graphs/maps. The part that's closest 
+to what you're looking for in this assignment is towards the bottom 
+under "USING GRAPHS". I hope you enjoy!
+
+
+Here's a quick rundown on the concept...
+THE PROBLEM
+The forestry consulting industry is outdated and lacks the efficiencies that 
+technology has to offer.
+
+Foresters spend a significant amount of their time on the road when they aren’t 
+visiting landowners. During visits, they may give rough estimations of timber 
+values by “eying” the average height and diameter of the trees. They also 
+provide consultation on the best way to manage a stand to maximize returns 
+(i.e., clear-cutting vs thinning) or fix a problem (i.e., erosion, disease, etc). 
+
+These site visits take time, which the forester can then bill the landowner for. 
+The rough value estimations by “eying” timber can also be problematic for obvious 
+reasons.
+
+MY SOLUTION
+My drones equipped with LiDAR will significantly disrupt this business.
+They will provide: 
+- more precise timber valuations
+- more elaborate management strategies
+- more competitive price structure than foresters can offer for their time
+- A detailed mapping interface that provides clients with a digital map of their 
+  land and timber
+
+My drones can autonomously fly through timber stands and determine precise values 
+of every individual tree. By taking variables such as tree species, height, diameter, 
+crown structure, soil composition, elevation, climate, etc., my drones can gather 
+data for elaborate timber valuation models.
+
+The software produces a current value and can provide multiple growth/value forecasts 
+based on various management strategies (i.e., short-term vs. long-term profit 
+maximization).
+
+This enables foresters to bring more elaborate deliverables to their clients, whilst 
+creating significant efficiency in their work schedules. They’ll spend less time on 
+the road between sites and more time analyzing their current clients’ timber data 
+or picking up new clients. It can also be used to quantify hurricane and wildfire 
+damage, among other things.
+
+
+TECHNICALITIES
+CREATING FLIGHT PATHS
+The drones will be highly intelligent and capable of adjusting flightpaths as they
+come across unexpected obstacles. Before deployment over a given stand of timber,
+I will use geographic coordinates to outline a map from which the drone's software 
+will parse into a graphical flightplan. 
+
+Although the flightpath calculation is important, the most crucial part of this 
+concept is the development of the software that gathers, translates, and analyzes 
+the timber data, which is then populated geographically into the outlined map (a graph).
+
+LiDAR – FOURIER TRANSFORMS
+As the drones fly above the timber, the LiDAR will activate and begin pulsing light
+waves towards the ground. Some of the light waves will hit the canopy and bounce back
+to the LiDAR device, while other light waves will penetrate further below, some to the
+ground level. The LiDAR device gathers data by recording the amount of time it takes
+for x lightwave to return back to the device. This raw data is collected in waveform, 
+so I believe the translation algorithm will need to be processed with a fourier transform. 
+Granted, I'm not exceptionally well-versed in mathematics, but this is what I've found 
+so far through my research.
+
+GRAPHICAL MAP
+After the translation of waveform data into more useful variables such as tree height,
+canopy structure, tree diameter, etc., each tree will be plotted onto a graphical map
+for the client's convenience as well as further analysis. Using variables such as soil 
+type and proximity to other trees, the precise location of each tree will be an 
+important aspect in evaluating and modeling a given tree's current health and future 
+growth potential. Therefore, the insights gathered from this data will provide helpful 
+recommendations to the landowner for exactly which trees to remove as the timber stand 
+develops. Later drone models will be equipped with paintball guns; they will be used to 
+autonomously fly through the timber and mark the trees at eye-level to be removed by the 
+loggers. The graphical map generated from previous flyovers will be necessary for this 
+"marker drone" to locate the trees to be removed.
+
+
+USING GRAPHS
+Now that I've shared the idea with you, I'd like to delve a little more into how the 
+graphical map would work. The first step in producing the graph will be outlining the
+border of the designated area. Of course, some property borders are curved, so there
+would be a good bit of math/geometry involved with calculating this type of edge. 
+However, property lines for the most part are lines connected by survey markers, which
+are also recorded by the surveyors as coordinates. I would use the given coordinates
+(whether given by the landowner or found on Google Maps if the edge of a timber stand 
+is not a property line) as vertices in a connected graph. The drone then uses this
+graph as a set of boundaries from which it creates its flightpath. The flightpath
+will depend on the area within the graph and the elevation at which the drone will
+operate, given that the LiDAR has a limited field of view.
+
+As the drone collects data from each tree, it will populate the inside of this graph 
+with a second overlayed graph. Each tree will be represented as a vertex which is 
+associated with a dictionary that includes the tree's unique identifier, species, and 
+all the other variables unique to the given tree. This will be a complete, undirected 
+graph where each vertex is connected by an edge; the weight of each edge is the distance 
+between the trees (vertices). Combined with the height and canopy structure of each tree, 
+the weighted edges will be useful in quantifying the competition between adjacent trees 
+in the stand.
+
+I think this could also have a 3-dimensional aspect. This is where it gets a little more 
+complex with significant demand for storage and processing energy. Perhaps every tree in 
+the stand could have its own graph that essentially maps out the structure of its crown
+and trunk. This isn't necessary, but it could be useful for precise biological research 
+purposes.
+
+Finally, I'm not exactly sure how I would do this last part yet, but I need to include
+some way to keep track of the elevation, soil type, and other more general characteristics
+of the area of interest, as these variables can differ even in an area as small as a stand
+of timber.
+
+
+To follow through on this idea, there is obviously much more research, work, and 
+brainstorming to be done. I definitely need to learn more about AI and other concepts
+for this. 
+I want to leave you with one final thought on this idea that could provide a really 
+interesting opportunity in a completely different industry, and it still relates to 
+graphs.
+
+
+VIRTUAL REALITY
+In the long term after I've developed this timber analysis business, I want to sell
+3-dimensional maps to virtual reality video game companies. Sure, those companies
+probably have algorithms that can generate open world maps in which there is unlimited,
+unstructured potential for fun (i.e., Minecraft, Skyrim, etc.).
+
+But it still doesn't feel as real as reality itself. Imagine playing in an ultra-
+realistic videogame where the map is Earth itself. You can be a Native American running 
+through a densely wooded swamp, or a patriot during the Revolutionary War engaging in 
+guerrilla-style combat. The possibilities are endless. And this can all be done with 
+LiDAR: I would send the drones above and throughout the area to create a full 
+3-dimensional graphical map of a given environment.
